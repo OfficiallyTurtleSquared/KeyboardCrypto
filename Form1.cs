@@ -15,6 +15,19 @@ namespace KeyboardCrypto
         #region basic definitions and other things that need to be collapsed for this code to be legible
         public bool isEncrypt;
         public bool isDecrypt;
+
+        public void ButtonOff(Button x)
+        {
+            x.BackColor = Color.White;
+            x.ForeColor = Color.Black;
+        }
+
+        public void ButtonOn(Button x)
+        {
+            x.BackColor = Color.Blue;
+            x.ForeColor = Color.White;
+        }
+
         public void EncryptShifterFunction(string input)
         {
             StringBuilder builder = new StringBuilder();
@@ -126,30 +139,25 @@ namespace KeyboardCrypto
         {
             isEncrypt = true;
             isDecrypt = false;
-            encryptButton.BackColor = Color.Blue;
-            encryptButton.ForeColor = Color.White;
-            decryptButton.BackColor = Color.White;
-            decryptButton.ForeColor = Color.Black;
+            ButtonOn(encryptButton);
+            ButtonOff(decryptButton);
+            
         }
 
         private void EncryptButton_Click(object sender, EventArgs e)
         {
             isEncrypt = true;
             isDecrypt = false;
-            encryptButton.BackColor = Color.Blue;
-            encryptButton.ForeColor = Color.White;
-            decryptButton.BackColor = Color.White;
-            decryptButton.ForeColor = Color.Black;
+            ButtonOn(encryptButton);
+            ButtonOff(decryptButton);
         }
 
         private void DecryptButton_Click(object sender, EventArgs e)
         {
             isEncrypt = false;
             isDecrypt = true;
-            decryptButton.BackColor = Color.Blue;
-            decryptButton.ForeColor = Color.White;
-            encryptButton.BackColor = Color.White;
-            encryptButton.ForeColor = Color.Black;
+            ButtonOn(decryptButton);
+            ButtonOff(encryptButton);
         }
 
         private void ApplyButton_Click(object sender, EventArgs e)
